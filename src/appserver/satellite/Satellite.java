@@ -175,15 +175,17 @@ private class SatelliteThread extends Thread {
         } else {
             System.out.println("Tool Class: " + toolClassString + " already in Cache.");
         }
-        
-        
+
+
             return toolObject;
+        }
+
     }
 
-        public void main(String[] args) {
+    public static void main(String[] args) {
         // start the satellite
         Satellite satellite = new Satellite(args[0], args[1], args[2]);
         satellite.run();
-        }
     }
+
 }
