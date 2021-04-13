@@ -14,15 +14,25 @@ public class SatelliteManager {
     static private Hashtable<String, ConnectivityInfo> satellites = null;
 
     public SatelliteManager() {
-        // ..
+        satellites = new Hashtable();
     }
 
     public void registerSatellite(ConnectivityInfo satelliteInfo) {
         // ...
+        String satelliteName = satelliteInfo.getName();
+        
+        if(satellites.get(satelliteName) == null)
+        {
+            satellites.put(satelliteName, satelliteInfo);
+            System.out.println("[SatelliteManager.registerSatellite] " + satelliteName + " is registered");
+        }
+        else{
+            System.out.println("[SatelliteManager.registerSatellite] " + satelliteName + " is already registered");
+        }
     }
 
     public ConnectivityInfo getSatelliteForName(String satelliteName) {
         // ..
-        return null;
+        return satellites.get(satelliteName);
     }
 }
