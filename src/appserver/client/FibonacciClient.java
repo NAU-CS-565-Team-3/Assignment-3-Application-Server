@@ -43,7 +43,7 @@ public class FibonacciClient extends Thread implements MessageTypes{
             Socket server = new Socket(host, port);
             
             // hard-coded string of class, aka tool name ... plus one argument
-            String classString = "appserver.job.impl.Fibonnaci";
+            String classString = "appserver.job.impl.Fibonacci";
             
             // create job and job request message
             Job job = new Job(classString, sequenceNumber);
@@ -56,7 +56,7 @@ public class FibonacciClient extends Thread implements MessageTypes{
             // reading result back in from application server
             // for simplicity, the result is not encapsulated in a message
             ObjectInputStream readFromNet = new ObjectInputStream(server.getInputStream());
-            Integer result = (Integer) readFromNet.readObject();
+            long result = (long) readFromNet.readObject();
             System.out.println("Fibonacci of " + sequenceNumber +  ": " + result);
         } catch (Exception ex) {
             System.err.println("[FibonacciClient.run] Error occurred");

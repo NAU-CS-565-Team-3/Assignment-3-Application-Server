@@ -17,9 +17,9 @@ public class FibonacciHelper {
         this.sequenceNumber = number;
     }
     
-    public Integer getResult() {
+    public long getResult() {
         
-       int num1 = 0, num2 = 1;
+       long num1 = 0, num2 = 1;
        
        // return for base cases
        if (sequenceNumber == 1 | sequenceNumber == 0){
@@ -31,7 +31,7 @@ public class FibonacciHelper {
         // Iterate till counter is sequence Number
         while (counter < sequenceNumber) {
             // calculate next sequence number
-            int nextSequenceNumber = num2 + num1;
+            long nextSequenceNumber = num2 + num1;
             
             //swap numbers
             num1 = num2;

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class LoadManager {
 
     static ArrayList satellites = null;
-    static int lastSatelliteIndex = -1;
+    static int nextSatelliteIndex = -1; // The next satellite server to be assigned a job
 
     public LoadManager() {
         satellites = new ArrayList<String>();
@@ -23,8 +23,8 @@ public class LoadManager {
         {
             satellites.add(satelliteName);
             
-            if (lastSatelliteIndex == -1){
-                lastSatelliteIndex = 0;
+            if (nextSatelliteIndex == -1){
+                nextSatelliteIndex = 0;
             }
             
             System.out.println("[LoadManager.satelliteAdded] " + satelliteName + " has been added");
@@ -40,12 +40,18 @@ public class LoadManager {
         String nextSatelliteName = null;
         
         synchronized (satellites) {
-            // implement policy that returns the satellite name according to a round robin methodology
-            // ...
-            
+            // Return a satelite name according to a round robin methodology
             if (numberSatellites > 0)
             {
-                // TODO implement round robin
+                // Return the next satellite based on the index
+                nextSatelliteName = (String)satellites.get( nextSatelliteIndex );
+                
+                // Iterate the index so the next satellite will be used
+                nextSatelliteIndex++;
+                // If we have reached the end of the list of satellites, wrap around
+                if( nextSatelliteIndex >= numberSatellites ) {
+                    nextSatelliteIndex = 0;
+                }
             }
             else {
                 System.out.println("No Satellites Registered");
@@ -53,7 +59,7 @@ public class LoadManager {
             }
         }
 
-        return nextSatelliteName// ... name of satellite who is supposed to take job
-        ;
+        return nextSatelliteName;// ... name of satellite who is supposed to take job
+     
     }
 }

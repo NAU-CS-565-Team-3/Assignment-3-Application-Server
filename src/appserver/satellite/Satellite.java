@@ -145,7 +145,7 @@ public class Satellite extends Thread {
                             Object result = tool.go(requestedJob.getParameters());
                             // Notify the client of job request's result
                             writeToNet.writeObject(result);
-                            System.out.println("[SatelliteThread.run] COMPLETED JOB REQUEST #: " + (int) result);
+                            System.out.println("[SatelliteThread.run] COMPLETED JOB REQUEST #: " + (long) result);
                         } catch (UnknownToolException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                             System.err.println(e);
                         }
