@@ -5,7 +5,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 /**
- *
+ * SatelliteManager manages the satellite servers
  * @author Dr.-Ing. Wolf-Dieter Otte
  */
 public class SatelliteManager {
@@ -17,6 +17,10 @@ public class SatelliteManager {
         satellites = new Hashtable();
     }
 
+    /**
+     * Registers Satellite Server by adding it into the hashtable satellites 
+     * @param satelliteInfo - satellite information to add
+     */
     public void registerSatellite(ConnectivityInfo satelliteInfo) {
         // ...
         String satelliteName = satelliteInfo.getName();
@@ -30,7 +34,11 @@ public class SatelliteManager {
             System.out.println("[SatelliteManager.registerSatellite] " + satelliteName + " is already registered");
         }
     }
-
+    /**
+     * Returns the Satellite information 
+     * @param satelliteName - name of satellite to get information for
+     * @return
+     */
     public ConnectivityInfo getSatelliteForName(String satelliteName) {
         // ..
         return satellites.get(satelliteName);

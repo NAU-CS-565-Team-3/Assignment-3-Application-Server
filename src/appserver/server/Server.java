@@ -45,6 +45,9 @@ public class Server {
         }
     }
 
+    /**
+     * Runs a new server thread
+     */
     public void run() {
         // serve clients in server loop ...
         // when a request comes in, a ServerThread object is spawned
@@ -71,6 +74,9 @@ public class Server {
             this.client = client;
         }
 
+        /**
+         * Runs the server and takes care of the satellite server incomming messages. 
+         */
         @Override
         public void run() {
             // set up object streams and read message

@@ -23,7 +23,11 @@ public class FibonacciClient extends Thread implements MessageTypes{
     int sequenceNumber;
 
     Properties properties;
-
+    /** 
+     * Initializer
+     * @param serverPropertiesFile - server config file
+     * @param currentNumber - current Fibonacci sequence number 
+     */
     public FibonacciClient(String serverPropertiesFile, int currentNumber) {
         try {
             properties = new PropertyHandler(serverPropertiesFile);
@@ -37,6 +41,10 @@ public class FibonacciClient extends Thread implements MessageTypes{
         }
     }
     
+    /**
+     * Runs FibonacciClient for each sequence number. Connects to the applications server and creates the job to obtain
+     * each result.
+     */
     public void run() {
         try { 
             // connect to application server
@@ -64,6 +72,10 @@ public class FibonacciClient extends Thread implements MessageTypes{
         }
     }
 
+    /**
+     * Run the fibonacci Client for sequence numbers 0 - 47
+     * @param args - command line arguments
+     */
     public static void main(String[] args) {
         for(int i = 0; i < 48; i++ ){
             (new FibonacciClient("../../config/Server.properties",i)).start();

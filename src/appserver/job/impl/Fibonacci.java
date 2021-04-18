@@ -8,7 +8,7 @@ package appserver.job.impl;
 import appserver.job.Tool;
 
 /**
- *
+ * Fibonacci class gets the Fibonacci result based on the sequence number by calling FibonacciHelper
  * @author Jacob Kaufman
  */
 public class Fibonacci implements Tool{

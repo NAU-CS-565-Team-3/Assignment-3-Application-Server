@@ -11,13 +11,19 @@ public class LoadManager {
     static ArrayList satellites = null;
     static int nextSatelliteIndex = -1; // The next satellite server to be assigned a job
 
+    /**
+     * Initializes LoadManager
+     */
     public LoadManager() {
         satellites = new ArrayList<String>();
     }
 
+    /**
+     * Adds a satellite to the arraylist satellites if not already added
+     * @param satelliteName - satellite to add
+     */
     public void satelliteAdded(String satelliteName) {
-        // add satellite
-        // ...
+        // add satellite 
         
         if(!satellites.contains(satelliteName))
         {
@@ -33,7 +39,10 @@ public class LoadManager {
         }
     }
 
-
+    /**
+     * Grabs the next satellite based on the nextSatelliteIndex
+     * @return the next satellite
+     */
     public String nextSatellite() throws Exception {
         
         int numberSatellites = satellites.size();

@@ -6,7 +6,8 @@
 package appserver.job.impl;
 
 /**
- *
+ * FibonacciHelper implements the Fibonacci algroithm to return the result to the 
+ * Fibonacci job.
  * @author Jacob Kaufman
  */
 public class FibonacciHelper {
@@ -17,6 +18,10 @@ public class FibonacciHelper {
         this.sequenceNumber = number;
     }
     
+    /**
+     * Gets the correct Fibonacci result based on the sequence number
+     * @return the correct Fibonacci result
+     */
     public long getResult() {
         
        long num1 = 0, num2 = 1;
